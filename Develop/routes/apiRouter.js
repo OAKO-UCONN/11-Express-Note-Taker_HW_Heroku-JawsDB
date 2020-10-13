@@ -4,8 +4,8 @@
 //Dependencies
 const express = require("express");
 const fs = require("fs");
-const app = express.Router();
-const uuidv1 = require("uuidv1");
+//const app = express.Router();
+//const uuidv1 = require("uuidv1");
 //add more dependencies below if needed...
 
 let notes = require('../db/db.json');
@@ -22,7 +22,8 @@ module.exports = (app) => {
     app.post('/api/notes', (req,res) => {
         const note = req.body;
 
-        //Now going to organize the notes by publish date:
+        //Now going to organize the notes by publish date.
+        //Older notes go on top, newer go below. This can be changed in a future update.
         //Loop to check the highest note id number:
         let highest = 0;
         for (let key in notes) {
