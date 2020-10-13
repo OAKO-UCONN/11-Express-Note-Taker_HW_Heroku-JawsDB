@@ -1,5 +1,9 @@
+//Dependencies
 const express = require("express");
+const htmlRouter = require("./routes/htmlRouter");
+const apiRouter = require("./routes/apiRouter");
 //any other required goes here
+
 
 // Initialize the app and create a port
 const app = express();
