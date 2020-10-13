@@ -3,8 +3,6 @@
 //
 //Dependencies
 const express = require("express");
-const httpRouter = require("./routes/httpRouter");
-const apiRouter = require("./routes/apiRouter");
 //any other required goes here
 
 
@@ -17,10 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+//Module Dependencies
+require('./routes/apiRouter')(app);
+require('./routes/httpRouter')(app);
 
 // Start the server on the port
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
 
 //Debugging
-console.log(app);
-console.log(httpRouter);
+//console.log(app);
+//console.log(httpRouter);
