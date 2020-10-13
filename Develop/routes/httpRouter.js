@@ -3,7 +3,7 @@
 //
 
 //Dependencies
-//const { resolveNaptr } = require("dns");
+const httpRouter = require("httpRouter");
 const express = require("express");
 const path = require("path");
 const app = express.Router();
@@ -20,4 +20,4 @@ app.get("*", (req,res) => {
 });
 
 //export
-module.exports = app;
+module.exports = httpRouter;
