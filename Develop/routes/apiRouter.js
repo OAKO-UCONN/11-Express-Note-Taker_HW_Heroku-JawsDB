@@ -72,4 +72,10 @@ module.exports = (app) => {
 
     });//END POST REQUEST
 
+    //Delete note
+    app.delete("/api/notes/:id", (req,res) => {
+        notes = notes.filter(note => note.id === req.params.id);
+        res.json(notes);
+    });
+
 };//END MODULE

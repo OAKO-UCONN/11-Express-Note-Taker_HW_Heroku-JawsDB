@@ -8,7 +8,7 @@ const express = require("express");
 
 // Initialize the app and create a port
 const app = express();
-const PORT = process.env.PORT || 3001;//Can change port if in use by another proccess.
+const PORT = process.env.PORT || 3002;//Can change port if in use by another proccess.
 
 // Set up body parsing, static, and route middleware
 app.use(express.json());
