@@ -25,6 +25,8 @@ module.exports = (app) => {
         //Now going to organize the notes by publish date.
         //Older notes go on top, newer go below. This can be changed in a future update.
         //Loop to check the highest note id number:
+
+        //Highest
         let highest = 0;
         for (let key in notes) {
             let id = notes[key].id;
@@ -33,9 +35,26 @@ module.exports = (app) => {
             }
         }
 
+        //Lowest
+        /*
+        let lowest = 0;
+        for (let key in notes) {
+            let id = notes[key].id;
+            if (id < lowest) {
+                lowest = id;
+            }
+        }
+        */
+
     //Add by one to the highest number to set to the new note:
     note.id = highest + 1;
     notes.push(note);
+
+    //Lowest
+    /*
+    note.id = lowest - 1;
+    notes.push(note);
+    */
 
     //Write new json element to the db.json file:
     fs.writeFile("db/db.json", JSON.stringify(notes), function(err) {
