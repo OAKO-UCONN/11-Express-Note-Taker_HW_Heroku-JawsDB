@@ -74,8 +74,29 @@ module.exports = (app) => {
 
     //Delete note
     app.delete("/api/notes/:id", (req,res) => {
+        var noteData = notes.filter(note => note.id != req.params.id);
+        fs.writeFIle("filePath", noteData, "utf8");
+        res.json(noteData);
+    });
+
+    /*
+     app.delete("/api/notes/:id", (req,res) => {
+        var noteData = notes.filter(note => note.id != req.params.id);
+        fs.writeFIle("filePath", noteData, "utf8");
+        res.json(noteData);
+    });
+    */
+
+    /*
+    app.delete("/api/notes/:id", (req,res) => {
+        var noteData = notes.filter(note => note.id != req.params.id);
+        res.json(notes);
+    });
+    /*
+    app.delete("/api/notes/:id", (req,res) => {
         notes = notes.filter(note => note.id === req.params.id);
         res.json(notes);
     });
+    */
 
 };//END MODULE
